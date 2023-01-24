@@ -19,7 +19,6 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
     <!-- Vendor CSS Files -->
-    <!-- {{ asset('admin/admin/assets/libs/datatables/dataTables.bootstrap4.css') }} -->
     <link href="{{ asset('admin/assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet') }}">
@@ -55,7 +54,7 @@
             <div class="row">
 
                 <!-- Left side columns -->
-                <div class="col-lg-8">
+                <div class="col-lg-12">
                     <div class="row">
 
                         <!-- Sales Card -->
@@ -252,7 +251,7 @@
                         <!-- End Reports -->
 
                         <!-- Recent Sales -->
-                        <div class="col-12">
+                        {{-- <div class="col-12">
                             <div class="card recent-sales overflow-auto">
 
                                 <div class="filter">
@@ -323,11 +322,11 @@
                                 </div>
 
                             </div>
-                        </div>
+                        </div> --}}
                         <!-- End Recent Sales -->
 
                         <!-- Top Selling -->
-                        <div class="col-12">
+                        {{-- <div class="col-12">
                             <div class="card top-selling overflow-auto">
 
                                 <div class="filter">
@@ -408,7 +407,7 @@
                                 </div>
 
                             </div>
-                        </div>
+                        </div> --}}
                         <!-- End Top Selling -->
 
                     </div>
@@ -416,7 +415,7 @@
                 <!-- End Left side columns -->
 
                 <!-- Right side columns -->
-                <div class="col-lg-4">
+                {{-- <div class="col-lg-4">
 
                     <!-- Recent Activity -->
                     <div class="card">
@@ -695,7 +694,7 @@
                     </div>
                     <!-- End News & Updates -->
 
-                </div>
+                </div> --}}
                 <!-- End Right side columns -->
 
             </div>
