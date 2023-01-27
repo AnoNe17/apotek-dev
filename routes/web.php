@@ -1,7 +1,9 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,8 +21,13 @@ use App\Http\Controllers\DashboardController;
 // });
 
 // Route::get('/', [DashboardController::class, 'index'])->name('admin.index');
-Route::get('/', [DashboardController::class, 'index']);
+Route::get('/', [PageController::class, 'index']);
 
 
-Route::prefix('admin')->group(function () {
+
+Auth::routes();
+
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/dashboard', [DashboardController::class, 'index']);
 });
