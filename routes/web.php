@@ -21,7 +21,7 @@ use App\Http\Controllers\PageController;
 // });
 
 // Route::get('/', [DashboardController::class, 'index'])->name('admin.index');
-Route::get('/', [PageController::class, 'index']);
+Route::get('/', [PageController::class, 'index'])->name('home');
 
 
 
