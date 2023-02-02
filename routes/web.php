@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\WebController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,5 +30,12 @@ Auth::routes();
 
 
 Route::group(['middleware' => ['auth']], function () {
-    Route::get('/dashboard', [DashboardController::class, 'index']);
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    Route::prefix('setting')->group(function () {
+        Route::prefix('website')->group(function () {
+            Route::get('/', [WebController::class, 'index'])->name('setting.web');
+            Route::post('update', [WebController::class, 'update'])->name('setting.web.update');
+        });
+    });
 });

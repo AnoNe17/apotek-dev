@@ -10,6 +10,9 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        return view('admin.layouts.app');
+        $sidebar = 'dashboard';
+        return view('admin.dashboard.index', [
+            'sidebar' => $sidebar
+        ]);
     }
 }

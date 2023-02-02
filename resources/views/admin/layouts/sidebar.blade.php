@@ -4,7 +4,7 @@
         <ul class="sidebar-nav" id="sidebar-nav">
 
             <li class="nav-item">
-                <a class="nav-link " href="index.html">
+                <a class="nav-link @if ($sidebar != 'dashboard') collapsed @else @endif" href="{{ route('dashboard') }}">
                     <i class="bi bi-grid"></i>
                     <span>Dashboard</span>
                 </a>
@@ -39,31 +39,11 @@
             <li class="nav-heading">Pengaturan</li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" data-bs-target="#pengaturan-nav" data-bs-toggle="collapse" href="#">
-                    <i class="bi bi-menu-button-wide"></i><span>Pengaturan Website</span><i class="bi bi-chevron-down ms-auto"></i>
+                <a class="nav-link @if ($sidebar != 'pengaturan') collapsed @else @endif" href="{{ route('setting.web') }}">
+                
+                    <i class="bi bi-globe"></i>
+                    <span>Pengaturan Website</span>
                 </a>
-                <ul id="pengaturan-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                    <li>
-                        <a href="components-alerts.html">
-                            <i class="bi bi-circle"></i><span>Menu Home</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="components-alerts.html">
-                            <i class="bi bi-circle"></i><span>Menu Profil</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="components-alerts.html">
-                            <i class="bi bi-circle"></i><span>Menu Product</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="components-alerts.html">
-                            <i class="bi bi-circle"></i><span>Menu Info pembelian & Contact</span>
-                        </a>
-                    </li>
-                </ul>
             </li>
             <!-- End Settings Nav -->
 
