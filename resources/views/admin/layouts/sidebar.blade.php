@@ -4,7 +4,7 @@
         <ul class="sidebar-nav" id="sidebar-nav">
 
             <li class="nav-item">
-                <a class="nav-link @if (Route::current()->getName() != 'dashboard') collapsed @else @endif" href="{{ route('dashboard') }}">
+                <a class="nav-link {{ Request::is('dashboard*') ? '' : 'collapsed' }}" href="{{ route('dashboard') }}">
                     <i class="bi bi-grid"></i>
                     <span>Dashboard</span>
                 </a>
@@ -30,16 +30,27 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="users-profile.html">
-                    <i class="bi bi-person"></i>
-                    <span>Blog & Informasi Kesehatan</span>
+                <a class="nav-link {{ Request::is('blog*') ? '' : 'collapsed' }}" data-bs-target="#blog-nav" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-menu-button-wide"></i><span>Blog & Informasi Kesehatan</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
+                <ul id="blog-nav" class="nav-content {{ Request::is('blog*') ? 'show' : 'collapse' }}" data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="{{ route('blog.kategori') }}" class="{{ Request::is('blog*') ? 'active' : '' }}">
+                            <i class="bi bi-circle"></i><span>Kategori</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="components-alerts.html">
+                            <i class="bi bi-circle"></i><span>Postingan</span>
+                        </a>
+                    </li>
+                </ul>
             </li>
 
             <li class="nav-heading">Pengaturan</li>
 
             <li class="nav-item">
-                <a class="nav-link @if (Route::current()->getName() != 'setting.web') collapsed @else @endif" href="{{ route('setting.web') }}">
+                <a class="nav-link {{ Request::is('setting*') ? '' : 'collapsed' }}" href="{{ route('setting.web') }}">
                     <i class="bi bi-globe"></i>
                     <span>Pengaturan Website</span>
                 </a>

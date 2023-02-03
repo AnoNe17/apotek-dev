@@ -10,10 +10,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $content = Content::first();
 
-        return view('admin.dashboard.index', [
-            'content' => $content,
-        ]);
+        return view('admin.dashboard.index');
     }
 }

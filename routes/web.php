@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
@@ -31,6 +32,15 @@ Auth::routes();
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    Route::prefix('blog')->group(function () {
+        Route::get('/', [BlogController::class, 'index'])->name('blog');
+
+        Route::prefix('kategori')->group(function () {
+            Route::get('/', [BlogController::class, 'kategori'])->name('blog.kategori');
+            Route::get('/create', [BlogController::class, 'kategoriCreate'])->name('blog.kategori.create');
+        });
+    });
 
     Route::prefix('setting')->group(function () {
         Route::prefix('website')->group(function () {
