@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Apotik</title>
+    <title>{{ $content->nama }}</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -13,6 +13,8 @@
     <link href="{{ asset('admin/assets/img/favicon.png') }}" rel="icon">
     <link href="{{ asset('admin/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
+    {{-- Sweet Alert --}}
+    <link href="{{ asset('admin/libs/sweetalert2/sweetalert2.css') }}" rel="stylesheet" type="text/css" />
 
     <!-- Google Fonts -->
     <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -68,6 +70,11 @@
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
       class="bi bi-arrow-up-short"></i></a>
 
+      @yield('script')
+
+
+    
+
     <!-- Vendor JS Files -->
     <script src="{{ asset('admin/assets/vendor/apexcharts/apexcharts.min.js') }}"></script>
     <script src="{{ asset('admin/assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
@@ -80,6 +87,33 @@
 
     <!-- Template Main JS File -->
     <script src="{{ asset('admin/assets/js/main.js') }}"></script>
+
+    {{-- SweetAlert --}}
+    <script src="{{ asset('admin/libs/sweetalert2/sweetalert2.js') }}"></script>
+
+
+    @if (session()->has('success'))
+        <script>
+            Swal.fire({
+              position: 'top-end',
+              icon: 'success',
+              title: '{{ session()->get('success') }}',
+              showConfirmButton: false,
+              timer: 1500
+            })
+        </script>
+    @endif
+    @if (session()->has('failed'))
+        <script>
+            Swal.fire({
+              position: 'top-end',
+              icon: 'error',
+              title: '{{ session()->get('failed') }}',
+              showConfirmButton: false,
+              timer: 1500
+            })
+        </script>
+    @endif
 
 </body>
 

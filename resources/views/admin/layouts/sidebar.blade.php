@@ -4,7 +4,7 @@
         <ul class="sidebar-nav" id="sidebar-nav">
 
             <li class="nav-item">
-                <a class="nav-link @if ($sidebar != 'dashboard') collapsed @else @endif" href="{{ route('dashboard') }}">
+                <a class="nav-link @if (Route::current()->getName() != 'dashboard') collapsed @else @endif" href="{{ route('dashboard') }}">
                     <i class="bi bi-grid"></i>
                     <span>Dashboard</span>
                 </a>
@@ -39,8 +39,7 @@
             <li class="nav-heading">Pengaturan</li>
 
             <li class="nav-item">
-                <a class="nav-link @if ($sidebar != 'pengaturan') collapsed @else @endif" href="{{ route('setting.web') }}">
-                
+                <a class="nav-link @if (Route::current()->getName() != 'setting.web') collapsed @else @endif" href="{{ route('setting.web') }}">
                     <i class="bi bi-globe"></i>
                     <span>Pengaturan Website</span>
                 </a>

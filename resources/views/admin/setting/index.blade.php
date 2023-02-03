@@ -35,37 +35,22 @@
                     </div>
                     <div class="col-12">
                         <!-- Misi Tabs -->
+                        
                         <ul class="nav nav-tabs nav-tabs-bordered" id="borderedTab" role="tablist">
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#misi1" type="button" role="tab" aria-controls="home" aria-selected="true">Misi 1</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#misi2" type="button" role="tab" aria-controls="profile" aria-selected="false">Misi 2</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#misi3" type="button" role="tab" aria-controls="contact" aria-selected="false">Misi 3</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#misi4" type="button" role="tab" aria-controls="contact" aria-selected="false">Misi 4</button>
-                            </li>
+                            @foreach ($misi as $x => $m)
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link @if ($x === 0) active @else @endif " id="home-tab" data-bs-toggle="tab" data-bs-target="#misi{{ $x }}" type="button" role="tab" aria-controls="home" aria-selected="true">Misi {{ $x+1 }}</button>
+                                </li>
+                            @endforeach
                         </ul>
                         <div class="tab-content pt-2" id="borderedTabContent">
-                            <div class="tab-pane fade show active" id="misi1" role="tabpanel" aria-labelledby="home-tab">
-                                <label for="" class="form-label">Misi 1</label>
-                                <input type="text" class="form-control" id="" name="misi1">
-                            </div>
-                            <div class="tab-pane fade" id="misi2" role="tabpanel" aria-labelledby="profile-tab">
-                                <label for="" class="form-label">Misi 2</label>
-                                <input type="text" class="form-control" id="" name="misi2">
-                            </div>
-                            <div class="tab-pane fade" id="misi3" role="tabpanel" aria-labelledby="contact-tab">
-                                <label for="" class="form-label">Misi 3</label>
-                                <input type="text" class="form-control" id="" name="misi3">
-                            </div>
-                            <div class="tab-pane fade" id="misi4" role="tabpanel" aria-labelledby="contact-tab">
-                                <label for="" class="form-label">Misi 4</label>
-                                <input type="text" class="form-control" id="" name="misi4">
-                            </div>
+                            @foreach ($misi as $x => $m)
+                                <input type="hidden" name="id_misi[]" value="{{ $m->id }}">
+                                <div class="tab-pane fade @if ($x === 0) show active @else @endif " id="misi{{ $x }}" role="tabpanel" aria-labelledby="home-tab">
+                                    <label for="" class="form-label">Judul Misi {{ $x+1 }}</label>
+                                    <input type="text" class="form-control" id="" name="misi[]" value="{{ $m->nama }}">
+                                </div>
+                            @endforeach
                         </div><!-- End Bordered Tabs -->
                     </div>
                     <div class="col-12">
@@ -114,99 +99,50 @@
                     </div>
                     <div class="col-12">
                         <label for="" class="form-label">Detail Alamat</label>
-                        <input type="text" class="form-control" id="" name="alamat" value="{{ $content->alamat }}">
+                        <input type="text" class="form-control" id="" name="detail_alamat" value="{{ $content->detail_alamat }}">
                     </div>
                     <div class="col-12">
                         <!-- Layanan Tabs -->
                         <ul class="nav nav-tabs nav-tabs-bordered" id="borderedTab" role="tablist">
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#layanan1" type="button" role="tab" aria-controls="home" aria-selected="true">Layanan 1</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#layanan2" type="button" role="tab" aria-controls="profile" aria-selected="false">Layanan 2</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#layanan3" type="button" role="tab" aria-controls="contact" aria-selected="false">Layanan 3</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#layanan4" type="button" role="tab" aria-controls="contact" aria-selected="false">Layanan 4</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#layanan5" type="button" role="tab" aria-controls="contact" aria-selected="false">Layanan 5</button>
-                            </li>
+                            @foreach ($layanan as $x => $l)
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link @if ($x === 0) active @else @endif" id="home-tab" data-bs-toggle="tab" data-bs-target="#layanan{{ $x }}" type="button" role="tab" aria-controls="home" aria-selected="true">Layanan {{ $x+1 }}</button>
+                                </li>
+                            @endforeach
                         </ul>
                         <div class="tab-content pt-2" id="borderedTabContent">
-                            <div class="tab-pane fade show active" id="layanan1" role="tabpanel" aria-labelledby="home-tab">
-                                <label for="" class="form-label">Layanan 1</label>
-                                <input type="text" class="form-control" id="" name="layanan1">
-                            </div>
-                            <div class="tab-pane fade" id="layanan2" role="tabpanel" aria-labelledby="profile-tab">
-                                <label for="" class="form-label">Layanan 2</label>
-                                <input type="text" class="form-control" id="" name="layanan2">
-                            </div>
-                            <div class="tab-pane fade" id="layanan3" role="tabpanel" aria-labelledby="contact-tab">
-                                <label for="" class="form-label">Layanan 3</label>
-                                <input type="text" class="form-control" id="" name="layanan3">
-                            </div>
-                            <div class="tab-pane fade" id="layanan4" role="tabpanel" aria-labelledby="contact-tab">
-                                <label for="" class="form-label">Layanan 4</label>
-                                <input type="text" class="form-control" id="" name="layanan4">
-                            </div>
-                            <div class="tab-pane fade" id="layanan5" role="tabpanel" aria-labelledby="contact-tab">
-                                <label for="" class="form-label">Layanan 5</label>
-                                <input type="text" class="form-control" id="" name="layanan5">
-                            </div>
-                        </div><!-- End Bordered Tabs -->                    
+                            @foreach ($layanan as $x => $l)
+                            <input type="hidden" name="id_layanan[]" value="{{ $l->id }}">
+                                <div class="tab-pane fade @if ($x === 0) show active @else @endif" id="layanan{{ $x }}" role="tabpanel" aria-labelledby="home-tab">
+                                    <div class="col-12 mb-3">
+                                        <label for="" class="form-label">Judul Layanan {{ $x+1 }}</label>
+                                        <input type="text" class="form-control" id="" name="judul_layanan[]" value="{{ $l->judul }}">
+                                    </div>
+                                    <div class="col-12 mb-3">
+                                        <label for="" class="form-label">Deskripsi Layanan {{ $x+1 }}</label>
+                                        <input type="text" class="form-control" id="" name="deskripsi_layanan[]" value="{{ $l->deskripsi }}">
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>                   
                     </div>
-                    <div class="col-12">
-                        {{-- Clients Tab --}}
+                    {{-- <div class="col-12">
                         <ul class="nav nav-tabs nav-tabs-bordered" id="borderedTab" role="tablist">
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#client1" type="button" role="tab" aria-controls="home" aria-selected="true">Client 1</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#client2" type="button" role="tab" aria-controls="profile" aria-selected="false">Client 2</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#client3" type="button" role="tab" aria-controls="contact" aria-selected="false">Client 3</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#client4" type="button" role="tab" aria-controls="contact" aria-selected="false">Client 4</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#client5" type="button" role="tab" aria-controls="contact" aria-selected="false">Client 5</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#client6" type="button" role="tab" aria-controls="contact" aria-selected="false">Client 6</button>
-                            </li>
+                            @foreach ($client as $x => $c)
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link @if ($x === 0) active @else @endif" id="home-tab" data-bs-toggle="tab" data-bs-target="#client{{ $x }}" type="button" role="tab" aria-controls="home" aria-selected="true">Client {{ $x+1 }}</button>
+                                </li>
+                            @endforeach
                         </ul>
                         <div class="tab-content pt-2" id="borderedTabContent">
-                            <div class="tab-pane fade show active" id="client1" role="tabpanel" aria-labelledby="home-tab">
-                                <label for="" class="form-label">Client 1</label>
-                                <input type="text" class="form-control" id="" name="client1">
-                            </div>
-                            <div class="tab-pane fade" id="client2" role="tabpanel" aria-labelledby="profile-tab">
-                                <label for="" class="form-label">Client 2</label>
-                                <input type="text" class="form-control" id="" name="client2">
-                            </div>
-                            <div class="tab-pane fade" id="client3" role="tabpanel" aria-labelledby="contact-tab"> 
-                                <label for="" class="form-label">Client 3</label>
-                                <input type="text" class="form-control" id="" name="client3">
-                            </div>
-                            <div class="tab-pane fade" id="client4" role="tabpanel" aria-labelledby="contact-tab">
-                                <label for="" class="form-label">Client 4</label>
-                                <input type="text" class="form-control" id="" name="client4">
-                            </div>
-                            <div class="tab-pane fade" id="client5" role="tabpanel" aria-labelledby="contact-tab">
-                                <label for="" class="form-label">Client 5</label>
-                                <input type="text" class="form-control" id="" name="client5">
-                            </div>
-                            <div class="tab-pane fade" id="client6" role="tabpanel" aria-labelledby="contact-tab">
-                                <label for="" class="form-label">Client 6</label>
-                                <input type="text" class="form-control" id="" name="client6">
-                            </div>
-                        </div><!-- End Bordered Tabs -->
-                    </div>
+                            @foreach ($client as $x => $c)
+                                <div class="tab-pane fade @if ($x === 0) show active @else @endif " id="client{{ $x }}" role="tabpanel" aria-labelledby="home-tab">
+                                    <label for="" class="form-label">Client {{ $x+1 }}</label>
+                                    <input type="text" class="form-control" id="" name="client{{ $x }}">
+                                </div>
+                            @endforeach
+                        </div>
+                    </div> --}}
                     <div class="text-center">
                         <button type="submit" class="btn btn-primary">Submit</button>
                         <button type="reset" class="btn btn-secondary">Reset</button>
@@ -216,4 +152,20 @@
         </div>
     </div>
 </section>
+@endsection
+
+
+@section('script')
+<script>
+    function coba() {
+        Swal.fire({
+            title: 'Error!',
+            text: 'Do you want to continue',
+            icon: 'error',
+            confirmButtonText: 'Cool'
+        })
+    }
+    
+</script>
+    
 @endsection
