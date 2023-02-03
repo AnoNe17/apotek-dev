@@ -34,11 +34,22 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::prefix('blog')->group(function () {
-        Route::get('/', [BlogController::class, 'index'])->name('blog');
+        Route::prefix('postingan')->group(function () {
+            Route::get('/', [BlogController::class, 'postingan'])->name('blog.postingan');
+            Route::get('/create', [BlogController::class, 'postinganCreate'])->name('blog.postingan.create');
+            Route::post('/store', [BlogController::class, 'postinganStore'])->name('blog.postingan.store');
+            Route::get('/edit/{id}', [BlogController::class, 'postinganEdit'])->name('blog.postingan.edit');
+            Route::post('/update', [BlogController::class, 'postinganUpdate'])->name('blog.postingan.update');
+            Route::post('/delete', [BlogController::class, 'postinganDelete'])->name('blog.postingan.delete');
+        });
 
         Route::prefix('kategori')->group(function () {
             Route::get('/', [BlogController::class, 'kategori'])->name('blog.kategori');
             Route::get('/create', [BlogController::class, 'kategoriCreate'])->name('blog.kategori.create');
+            Route::post('/store', [BlogController::class, 'kategoriStore'])->name('blog.kategori.store');
+            Route::get('/edit/{id}', [BlogController::class, 'kategoriEdit'])->name('blog.kategori.edit');
+            Route::post('/update', [BlogController::class, 'kategoriUpdate'])->name('blog.kategori.update');
+            Route::post('/delete', [BlogController::class, 'kategoriDelete'])->name('blog.kategori.delete');
         });
     });
 

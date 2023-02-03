@@ -50,7 +50,7 @@ class WebController extends Controller
         ]);
 
         if ($validate->fails()) {
-            return $validate->errors()->first();
+            return back()->with('failed', $validate->errors()->first());
         }
 
         $data                   = Content::find(1);

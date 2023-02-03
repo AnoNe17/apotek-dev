@@ -35,12 +35,12 @@
                 </a>
                 <ul id="blog-nav" class="nav-content {{ Request::is('blog*') ? 'show' : 'collapse' }}" data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="{{ route('blog.kategori') }}" class="{{ Request::is('blog*') ? 'active' : '' }}">
+                        <a href="{{ route('blog.kategori') }}" class="{{ Request::is('blog/kategori') ? 'active' : '' }}">
                             <i class="bi bi-circle"></i><span>Kategori</span>
                         </a>
                     </li>
                     <li>
-                        <a href="components-alerts.html">
+                        <a href="{{ route('blog.postingan') }}" class="{{ Request::is('blog/postingan') ? 'active' : '' }}">
                             <i class="bi bi-circle"></i><span>Postingan</span>
                         </a>
                     </li>

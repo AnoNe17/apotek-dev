@@ -7,7 +7,7 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Blog & Informasi Kesehatan</a></li>
             <li class="breadcrumb-item ">Kategori</li>
-            <li class="breadcrumb-item active">Tambah Kategori</li>
+            <li class="breadcrumb-item active">Edit Kategori</li>
         </ol>
     </nav>
 </div>
@@ -18,12 +18,13 @@
     <div class="col-lg-12">
           <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Form Tambah Kategori Blog</h5>
-                <form class="row g-3" action="{{ route("blog.kategori.store") }}" method='POST' enctype='multipart/form-data'>
+                <h5 class="card-title">Form Edit Kategori Blog</h5>
+                <form class="row g-3" action="{{ route("blog.kategori.update") }}" method='POST' enctype='multipart/form-data'>
                     @csrf
+                    <input type="hidden" name="id_kategori" value="{{ $kategori->id }}">
                     <div class="col-12">
                         <label for="" class="form-label">Nama Kategori</label>
-                        <input type="text" class="form-control" name="nama" value="">
+                        <input type="text" class="form-control" name="nama" value="{{ $kategori->nama }}">
                     </div>
                     
                     <div class="text-center">

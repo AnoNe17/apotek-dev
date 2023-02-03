@@ -80,7 +80,7 @@
           </div>
         </div>
         <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
-          <img src="{{ asset('page/assets/img/hero-img.png') }}" class="img-fluid" alt="">
+          <img src="{{ asset('page/assets/img/hero.jpeg') }}" class="img-fluid" alt="">
         </div>
       </div>
     </div>
@@ -135,7 +135,7 @@
               <h3 class="align-middle m-3 mb-5" style="color: #012970; font-style: italic">"{{ $content->visi }}"</h3>
             </div>
             <div class="col-lg-6" data-aos="fade-up">
-              <img src="{{ asset('page/assets/img/features-2.png') }}" class="img-fluid animated" alt="" >
+              <img src="{{ asset('page/assets/img/fitur.jpeg') }}" class="img-fluid animated" alt="" >
             </div>
 
           </div><!-- End Feature Tabs -->
@@ -153,7 +153,7 @@
           <div class="row">
 
             <div class="col-lg-6">
-              <img src="{{ asset('page/assets/img/features.png') }}" class="img-fluid" alt="">
+              <img src="{{ asset('page/assets/img/fitur2.jpeg') }}" class="img-fluid" alt="">
             </div>
 
             <div class="col-lg-6 mt-5 mt-lg-0 d-flex">
