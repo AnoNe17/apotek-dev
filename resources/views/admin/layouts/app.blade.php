@@ -15,8 +15,8 @@
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="{{ asset('admin/assets/img/favicon.png') }}" rel="icon">
-    <link href="{{ asset('admin/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+    <link href="{{ asset('web/assets/logo/'. $content->logo) }}" rel="icon">
+    <link href="{{ asset('web/assets/logo/'. $content->logo) }}" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -39,15 +39,18 @@
 
     {{-- Select2 --}}
     <link href="{{ asset('admin/libs/select2/select2.min.css') }}" rel="stylesheet" type="text/css" />
+    
+    @yield('style')
 </head>
 
 <body>
-
     @include('admin.layouts.header')
 
     @include('admin.layouts.sidebar')
 
     <main id="main" class="main">
+
+      @yield('modal')
 
         @yield('header')
 

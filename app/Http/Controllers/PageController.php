@@ -26,4 +26,22 @@ class PageController extends Controller
             'misi' => $misi,
         ]);
     }
+
+    public function saran(Request $request)
+    {
+        return $request;
+        // $client = Client::get();
+        // $content = Content::first();
+        // $layanan = Layanan::get();
+        // $misi = Misi::get();
+
+        // // return $content;
+
+        // return view('page.index', [
+        //     'client' => $client,
+        //     'content' => $content,
+        //     'layanan' => $layanan,
+        //     'misi' => $misi,
+        // ]);
+    }
 }

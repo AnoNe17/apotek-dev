@@ -45,7 +45,7 @@ class BlogController extends Controller
         $data                       = new Blog();
         $data->judul                = $request['judul'];
         $data->blog_kategori_id     = $request['kategori_id'];
-        $data->isi                 = $request['isi'];
+        $data->isi                  = $request['isi'];
         $data->gambar               = $request['gambar'];
         $data->save();
 

@@ -11,8 +11,8 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{{ asset('page/assets/img/logo.png') }}" rel="icon">
-  <link href="{{ asset('page/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+  <link href="{{ asset('web/assets/logo/'. $content->logo) }}" rel="icon">
+  <link href="{{ asset('web/assets/logo/'. $content->logo) }}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -29,21 +29,21 @@
   <link href="{{ asset('page/assets/css/style.css') }}" rel="stylesheet">
 </head>
 
-<body>
+<body style="">
 
   <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
       <a href="{{ route('home') }}" class="logo d-flex align-items-center">
-        <img src="{{ asset('page/assets/img/logo.png') }}" alt="">
+        <img src="{{ asset('web/assets/logo/'. $content->logo) }}" alt="">
         <span>{{ $content->nama }}</span>
       </a>
 
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#clients">Clients</a></li>
+          <li><a class="nav-link scrollto" href="#mitra">Mitra</a></li>
           <li class="dropdown"><a class="nav-link scrollto" href="#profil"><span>Profil</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a class="nav-link scrollto" href="#visi">Visi</a></li>
@@ -52,8 +52,8 @@
           </li>
           {{-- <li><a class="nav-link scrollto" href="#profil">Profil</a></li> --}}
           <li><a class="nav-link scrollto" href="#layanan">Layanan</a></li>
-          <li><a class="nav-link scrollto" href="#product">Product</a></li>
-          <li><a class="nav-link scrollto" href="#blog">Blog</a></li>
+          <li><a class="nav-link scrollto" href="#product">Produk</a></li>
+          <li><a class="nav-link scrollto" href="#info">Info Kesehatan</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -72,7 +72,7 @@
           <h2 data-aos="fade-up" data-aos-delay="400">{{ $content->slogan }}</h2>
           <div data-aos="fade-up" data-aos-delay="600">
             <div class="text-center text-lg-start">
-              <a href="#clients" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+              <a href="#mitra" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
                 <span>Get Started</span>
                 <i class="bi bi-arrow-right"></i>
               </a>
@@ -88,25 +88,20 @@
   </section><!-- End Hero -->
 
   <!-- ======= Clients Section ======= -->
-    <section id="clients" class="clients">
+    <section id="mitra" class="clients">
 
       <div class="container" data-aos="fade-up">
 
         <header class="section-header">
-          <h2>Clients</h2>
-          <p>Client kami</p>
+          <h2>Mitra</h2>
+          <p>Mitra kami</p>
         </header>
 
         <div class="clients-slider swiper">
           <div class="swiper-wrapper align-items-center">
-            <div class="swiper-slide"><img src="{{ asset('page/assets/img/clients/client-1.png') }}" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="{{ asset('page/assets/img/clients/client-2.png') }}" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="{{ asset('page/assets/img/clients/client-3.png') }}" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="{{ asset('page/assets/img/clients/client-4.png') }}" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="{{ asset('page/assets/img/clients/client-5.png') }}" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="{{ asset('page/assets/img/clients/client-6.png') }}" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="{{ asset('page/assets/img/clients/client-7.png') }}" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="{{ asset('page/assets/img/clients/client-8.png') }}" class="img-fluid" alt=""></div>
+            @foreach ($client as $c)
+              <div class="swiper-slide"><img src="{{ asset('web/assets/mitra/'. $c->source) }}" class="img-fluid" alt=""></div>
+            @endforeach
           </div>
           <div class="swiper-pagination"></div>
         </div>
@@ -226,7 +221,7 @@
       <div class="container" data-aos="fade-up">
 
         <header class="section-header">
-          <h2>Product</h2>
+          <h2>Produk</h2>
           <p>Produk Kami</p>
         </header>
 
@@ -379,13 +374,13 @@
     
 
     <!-- ======= Recent Blog Posts Section ======= -->
-    <section id="blog" class="recent-blog-posts">
+    <section id="info" class="recent-blog-posts">
 
       <div class="container" data-aos="fade-up">
 
         <header class="section-header">
-          <h2>Blog</h2>
-          <p>Blog dan Info kesehatan</p>
+          <h2>Info</h2>
+          <p>Info kesehatan</p>
         </header>
 
         <div class="row">
@@ -438,7 +433,7 @@
           <div class="col-lg-6">
 
             <div class="row gy-4">
-              <div class="col-md-6 col-sm-4">
+              <div class="col-md-6">
                 <div class="info-box">
                   <i class="bi bi-geo-alt"></i>
                   <h3>Alamat</h3>
@@ -447,7 +442,7 @@
                       {{ $content->provinsi }}</p>
                 </div>
               </div>
-              <div class="col-md-6 col-sm-4">
+              <div class="col-md-6">
                 <div class="info-box">
                   <i class="bi bi-telephone"></i>
                   <h3>Telepon</h3>
@@ -472,32 +467,26 @@
 
           </div>
 
-          <div class="col-lg-6">
-            <form action="forms/contact.php" method="post" class="php-email-form">
+          <div class="col-lg-6 ">
+            <h3 class="text-center" style="color: #012970; font-weight: 650">Kritik & Saran</h3>
+            <form action="{{ route("saran") }}" method="post" class="p-3" >
+              @csrf
               <div class="row gy-4">
 
                 <div class="col-md-6">
-                  <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                  <input type="text" name="name" class="form-control" placeholder="Nama" required>
                 </div>
 
                 <div class="col-md-6 ">
-                  <input type="email" class="form-control" name="email" placeholder="Your Email" required>
+                  <input type="email" class="form-control" name="email" placeholder="Email" required>
                 </div>
-
                 <div class="col-md-12">
-                  <input type="text" class="form-control" name="subject" placeholder="Subject" required>
-                </div>
-
-                <div class="col-md-12">
-                  <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
+                  <textarea class="form-control" name="pesan" rows="6" placeholder="Kritik & Saran" required></textarea>
                 </div>
 
                 <div class="col-md-12 text-center">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                  <button type="submit">Send Message</button>
+                  
+                  <button type="submit" class="btn btn-primary">Send Message</button>
                 </div>
 
               </div>
@@ -517,23 +506,23 @@
   <footer id="footer" class="footer">
 
     <div data-aos="zoom-out" class="footer-newsletter">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" style="border:0; width: 100%; height: 100%;" allowfullscreen></iframe>
+      {!! $content->maps !!}
     </div>
 
     <div class="footer-top">
       <div class="container">
         <div class="row gy-4">
           <div class="col-lg-5 col-md-12 footer-info">
-            <a href="index.html" class="logo d-flex align-items-center">
-              <img src="{{ asset('page/assets/img/logo.png') }}" alt="">
+            <a href="{{ route('home') }}" class="logo d-flex align-items-center">
+              <img src="{{ asset('web/assets/logo/'. $content->logo) }}" alt="">
               <span>{{ $content->nama }}</span>
             </a>
             <p>{{ $content->slogan }}</p>
             <div class="social-links mt-3">
-              <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-              <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-              <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+              <a href="{{ $content->facebook }}" class="facebok"><i class="bi bi-facebook"></i></a>
+              <a href="{{ $content->instagram }}" class="instagram"><i class="bi bi-instagram"></i></a>
+              <a href="{{ $content->youtube }}" class="youtube"><i class="bi bi-youtube"></i></a>
+              <a href="{{ $content->tokopedia }}" class=""><i class="bi bi-cart4"></i></a>
             </div>
           </div>
 
@@ -544,7 +533,7 @@
               <li><i class="bi bi-chevron-right"></i> <a class="scrollto" href="#clients">Clients</a></li>
               <li><i class="bi bi-chevron-right"></i> <a class="scrollto" href="#profil">Profil</a></li>
               <li><i class="bi bi-chevron-right"></i> <a class="scrollto" href="#layanan">Layanan</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a class="scrollto" href="#product">Product</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a class="scrollto" href="#product">Produk</a></li>
               <li><i class="bi bi-chevron-right"></i> <a class="scrollto" href="#blog">Blog</a></li>
               <li><i class="bi bi-chevron-right"></i> <a class="scrollto" href="#contact">Contact</a></li>
             </ul>
@@ -568,9 +557,7 @@
               <strong>Phone:</strong> {{ $content->telp }}<br>
               <strong>Email:</strong> {{ $content->email }}<br>
             </p>
-
           </div>
-
         </div>
       </div>
     </div>

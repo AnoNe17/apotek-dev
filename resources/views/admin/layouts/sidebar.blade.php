@@ -31,7 +31,7 @@
 
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('blog*') ? '' : 'collapsed' }}" data-bs-target="#blog-nav" data-bs-toggle="collapse" href="#">
-                    <i class="bi bi-menu-button-wide"></i><span>Blog & Informasi Kesehatan</span><i class="bi bi-chevron-down ms-auto"></i>
+                    <i class="bi bi-menu-button-wide"></i><span>Informasi Kesehatan</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
                 <ul id="blog-nav" class="nav-content {{ Request::is('blog*') ? 'show' : 'collapse' }}" data-bs-parent="#sidebar-nav">
                     <li>
@@ -45,6 +45,12 @@
                         </a>
                     </li>
                 </ul>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('dashboard*') ? '' : 'collapsed' }}" href="{{ route('dashboard') }}">
+                    <i class="bi bi-grid"></i>
+                    <span>Kritik & Saran</span>
+                </a>
             </li>
 
             <li class="nav-heading">Pengaturan</li>
