@@ -27,6 +27,9 @@
 
   <!-- Template Main CSS File -->
   <link href="{{ asset('page/assets/css/style.css') }}" rel="stylesheet">
+
+  {{-- Sweet Alert --}}
+    <link href="{{ asset('admin/libs/sweetalert2/sweetalert2.css') }}" rel="stylesheet" type="text/css" />
 </head>
 
 <body style="">
@@ -173,38 +176,53 @@
     </div>
 
     <!-- Feature Icons -->
-    <section  id="layanan" class="features">
-      <div class="container">
+    <section id="layanan" class="values">
+      <div class="container" data-aos="fade-up">
         <header class="section-header">
-            <h2>Layanan</h2>
-            <p>Layanan Kami</p>
-          </header>
-        <div class="row feature-icons" data-aos="fade-up">
-          <div class="row">
-            <div class="col-xl-4 text-center" data-aos="fade-right" data-aos-delay="100">
-              <img src="{{ asset('page/assets/img/features-3.png') }}" class="img-fluid p-4" alt="">
+          <h2>Layanan</h2>
+          <p>Layanan Kami</p>
+        </header>
+
+        {{-- <div class="clients-slider swiper">
+          <div class="swiper-wrapper align-items-center">
+            @foreach ($client as $c)
+              <div class="swiper-slide"><img src="{{ asset('web/assets/mitra/'. $c->source) }}" class="img-fluid" alt=""></div>
+            @endforeach
+          </div>
+          <div class="swiper-pagination"></div>
+        </div> --}}
+
+        <div class="row">
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="box">
+              <img src="{{ asset('page/assets/img/values-1.png') }}" class="img-fluid" alt="">
+              <h3>Konseling Apoteker</h3>
+              <p>Praktik Jam Konseling dan Pelayanan Farmasi Klinik oleh Apoteker</p>
             </div>
-            <div class="col-xl-8 d-flex content">
-              <div class="row align-self-center gy-4">
-
-                @foreach ($layanan as $l)
-                  <div class="col-md-6 icon-box" data-aos="fade-up">
-                    <i class="ri-line-chart-line"></i>
-                    <div>
-                      <h4>{{ $l->judul }}</h4>
-                      <p>{{ $l->deskripsi }}</p>
-                    </div>
-                  </div>
-                @endforeach
-
-              </div>
-            </div>
-
           </div>
 
-        </div><!-- End Feature Icons -->
+          <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="400">
+            <div class="box">
+              <img src="{{ asset('page/assets/img/values-2.png') }}" class="img-fluid" alt="">
+              <h3>Happy Family</h3>
+              <p>Melayani komunitas dengan baik dan memberikan kegiatan yang positif serta edukatif kepada komunitas lanjut usia yang mayoritas sudah tidak bekerja</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="600">
+            <div class="box">
+              <img src="{{ asset('page/assets/img/values-3.png') }}" class="img-fluid" alt="">
+              <h3>Pemeriksaan Klinik</h3>
+              <p>Pemeriksaan Tekanan darah, Kolesterol, Asam urat  & Gula Darah</p>
+            </div>
+          </div>
+
+        </div>
+
       </div>
-    </section>
+
+    </section><!-- End Values Section -->
         
 
     
@@ -468,11 +486,10 @@
           </div>
 
           <div class="col-lg-6 ">
-            <h3 class="text-center" style="color: #012970; font-weight: 650">Kritik & Saran</h3>
-            <form action="{{ route("saran") }}" method="post" class="p-3" >
+            <h3 class="text-center" style="color: #4154f1; font-weight: 650">Kritik & Saran</h3>
+            <form action="{{ route("saran.store") }}" method="post" class="p-3" >
               @csrf
               <div class="row gy-4">
-
                 <div class="col-md-6">
                   <input type="text" name="name" class="form-control" placeholder="Nama" required>
                 </div>
@@ -481,11 +498,10 @@
                   <input type="email" class="form-control" name="email" placeholder="Email" required>
                 </div>
                 <div class="col-md-12">
-                  <textarea class="form-control" name="pesan" rows="6" placeholder="Kritik & Saran" required></textarea>
+                  <textarea class="form-control" name="pesan" rows="6" placeholder="Pesan" required></textarea>
                 </div>
 
                 <div class="col-md-12 text-center">
-                  
                   <button type="submit" class="btn btn-primary">Send Message</button>
                 </div>
 
@@ -591,6 +607,34 @@
   <!-- Template Main JS File -->
   <script src="{{ asset('page/assets/js/main.js') }}"></script>
 
+  {{-- SweetAlert --}}
+  <script src="{{ asset('admin/libs/sweetalert2/sweetalert2.js') }}"></script>
+
+
+  @if (session()->has('success'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: '{{ session()->get('success') }}',
+                showConfirmButton: false,
+                timer: 1500,
+                type: "success",
+            })
+        </script>
+    @endif
+    @if (session()->has('failed'))
+        <script>
+            Swal.fire({
+              icon: 'error',
+              title: '{{ session()->get('failed') }}',
+              showConfirmButton: false,
+              timer: 1500,
+              type: "success",
+            })
+        </script>
+    @endif
+
 </body>
 
+  
 </html>

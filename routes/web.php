@@ -4,7 +4,9 @@ use App\Http\Controllers\BlogController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LayananController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\SaranController;
 use App\Http\Controllers\WebController;
 
 /*
@@ -24,12 +26,9 @@ use App\Http\Controllers\WebController;
 
 // Route::get('/', [DashboardController::class, 'index'])->name('admin.index');
 Route::get('/', [PageController::class, 'index'])->name('home');
-Route::post('saran', [PageController::class, 'saran'])->name('saran');
-
-
+Route::post('store', [SaranController::class, 'store'])->name('saran.store');
 
 Auth::routes();
-
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
@@ -52,6 +51,19 @@ Route::group(['middleware' => ['auth']], function () {
             Route::post('update', [BlogController::class, 'kategoriUpdate'])->name('blog.kategori.update');
             Route::post('delete', [BlogController::class, 'kategoriDelete'])->name('blog.kategori.delete');
         });
+    });
+
+    Route::prefix('saran')->group(function () {
+        Route::get('/', [SaranController::class, 'index'])->name('saran');
+    });
+
+    Route::prefix('layanan')->group(function () {
+        Route::get('/', [LayananController::class, 'index'])->name('layanan');
+        Route::get('create', [LayananController::class, 'create'])->name('layanan.create');
+        Route::post('store', [LayananController::class, 'store'])->name('layanan.store');
+        Route::get('edit/{id}', [LayananController::class, 'edit'])->name('layanan.edit');
+        Route::post('update', [LayananController::class, 'update'])->name('layanan.update');
+        Route::post('delete', [LayananController::class, 'delete'])->name('layanan.delete');
     });
 
     Route::prefix('setting')->group(function () {

@@ -47,9 +47,15 @@
                 </ul>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ Request::is('dashboard*') ? '' : 'collapsed' }}" href="{{ route('dashboard') }}">
+                <a class="nav-link {{ Request::is('saran*') ? '' : 'collapsed' }}" href="{{ route('saran') }}">
                     <i class="bi bi-grid"></i>
                     <span>Kritik & Saran</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('layanan*') ? '' : 'collapsed' }}" href="{{ route('layanan') }}">
+                    <i class="bi bi-grid"></i>
+                    <span>Layanan</span>
                 </a>
             </li>
 
