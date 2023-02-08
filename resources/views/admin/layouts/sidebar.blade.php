@@ -17,13 +17,18 @@
                 </a>
                 <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="components-alerts.html">
-                            <i class="bi bi-circle"></i><span>List Produk</span>
+                        <a href="{{ route('produk.kategori') }}">
+                            <i class="bi bi-circle"></i><span>Kategori</span>
                         </a>
                     </li>
                     <li>
                         <a href="components-alerts.html">
-                            <i class="bi bi-circle"></i><span>Kategori Produk</span>
+                            <i class="bi bi-circle"></i><span>Fungsional</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="components-alerts.html">
+                            <i class="bi bi-circle"></i><span>Nama Produk</span>
                         </a>
                     </li>
                 </ul>

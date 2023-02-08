@@ -183,16 +183,23 @@
           <p>Layanan Kami</p>
         </header>
 
-        {{-- <div class="clients-slider swiper">
+        
+        <div class="layanan-slider swiper">
           <div class="swiper-wrapper align-items-center">
-            @foreach ($client as $c)
-              <div class="swiper-slide"><img src="{{ asset('web/assets/mitra/'. $c->source) }}" class="img-fluid" alt=""></div>
+            @foreach ($layanan as $l)
+              <div class="swiper-slide">
+                <div class="box">
+                  <img src="{{ asset('web/assets/layanan/'. $l->gambar) }}" class="img-fluid" alt="">
+                  <h3>{{ $l->judul }}</h3>
+                  <p>{{ $l->deskripsi }}</p>
+                </div>
+              </div>
             @endforeach
           </div>
           <div class="swiper-pagination"></div>
-        </div> --}}
+        </div>
 
-        <div class="row">
+        {{-- <div class="row">
 
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
             <div class="box">
@@ -218,7 +225,7 @@
             </div>
           </div>
 
-        </div>
+        </div> --}}
 
       </div>
 

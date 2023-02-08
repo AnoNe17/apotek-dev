@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LayananController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\SaranController;
 use App\Http\Controllers\WebController;
 
@@ -50,6 +51,17 @@ Route::group(['middleware' => ['auth']], function () {
             Route::get('edit/{id}', [BlogController::class, 'kategoriEdit'])->name('blog.kategori.edit');
             Route::post('update', [BlogController::class, 'kategoriUpdate'])->name('blog.kategori.update');
             Route::post('delete', [BlogController::class, 'kategoriDelete'])->name('blog.kategori.delete');
+        });
+    });
+
+    Route::prefix('produk')->group(function () {
+        Route::prefix('kategori')->group(function () {
+            Route::get('/', [ProdukController::class, 'kategori'])->name('produk.kategori');
+            Route::get('create', [ProdukController::class, 'kategoriCreate'])->name('produk.kategori.create');
+            Route::post('store', [ProdukController::class, 'kategoriStore'])->name('produk.kategori.store');
+            Route::get('edit/{id}', [ProdukController::class, 'kategoriEdit'])->name('produk.kategori.edit');
+            Route::post('update', [ProdukController::class, 'kategoriUpdate'])->name('produk.kategori.update');
+            Route::post('delete', [ProdukController::class, 'kategoriDelete'])->name('produk.kategori.delete');
         });
     });
 

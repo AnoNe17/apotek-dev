@@ -1574,6 +1574,37 @@ section {
 
 
 /*--------------------------------------------------------------
+# Layanan
+--------------------------------------------------------------*/
+
+.layanan-slider .swiper-slide img {
+    opacity: 1;
+    transition: 0.3s;
+}
+
+.layanan-slider .swiper-slide img:hover {
+    opacity: 1;
+}
+
+.layanan-slider .swiper-pagination {
+    margin-top: 20px;
+    position: relative;
+}
+
+.layanan-slider .swiper-pagination .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background-color: #fff;
+    opacity: 1;
+    border: 1px solid #4154f1;
+}
+
+.layanan-slider .swiper-pagination .swiper-pagination-bullet-active {
+    background-color: #4154f1;
+}
+
+
+/*--------------------------------------------------------------
 # Recent Blog Posts
 --------------------------------------------------------------*/
 
