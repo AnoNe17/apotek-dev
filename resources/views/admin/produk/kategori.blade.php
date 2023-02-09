@@ -36,13 +36,12 @@
                         <td>{{ $x+1 }}</td>
                         <td>{{ $value->nama }}</td>
                         <td>
-                          <a href="{{ route('blog.kategori.edit', $value->id) }}" class='btn btn-warning d-inline rounded-pill'><i class="bi bi-pencil-square"></i></a>
-                          <a href="{{ route('blog.kategori.delete') }}" class='btn btn-danger d-inline rounded-pill' data-name ="{{ $value->nama }}" data-id="{{ $value->id }}" onclick="hapus(event)"><i class="bi bi-trash3-fill"></i></a>
-                          {{-- <form action="{{ route('blog.kategori.delete') }}" class="d-inline" method="post">
-                            @csrf
-                            <input type="hidden" name="id_kategori" value="{{ $k->id }}">
-                            <button type="submit" class="btn btn-danger rounded-pill"><i class="bi bi-trash3-fill"></i></button>
-                          </form> --}}
+                          @if ($value->id === 1)
+                              <div class="btn btn-secondary rounded-pill"><i class="bi bi-info-lg"></i></div>
+                          @else
+                          <a href="{{ route('produk.kategori.edit', $value->id) }}" class='btn btn-warning d-inline rounded-pill'><i class="bi bi-pencil-square"></i></a>
+                          <a href="{{ route('produk.kategori.delete') }}" class='btn btn-danger d-inline rounded-pill' data-name ="{{ $value->nama }}" data-id="{{ $value->id }}" onclick="hapus(event)"><i class="bi bi-trash3-fill"></i></a>
+                          @endif
                         </td>
                       </tr>
                   @endforeach
