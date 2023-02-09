@@ -12,23 +12,23 @@
             <!-- End Dashboard Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+                <a class="nav-link {{ Request::is('produk*') ? '' : 'collapsed' }}" data-bs-target="#produk-nav" data-bs-toggle="collapse" href="#">
                     <i class="bi bi-menu-button-wide"></i><span>Produk</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
-                <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <ul id="produk-nav" class="nav-content {{ Request::is('produk*') ? 'show' : 'collapse' }} " data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="{{ route('produk.kategori') }}">
+                        <a href="{{ route('produk.kategori') }}" class="{{ Request::is('produk/kategori*') ? 'active' : '' }}">
                             <i class="bi bi-circle"></i><span>Kategori</span>
                         </a>
                     </li>
                     <li>
-                        <a href="components-alerts.html">
+                        <a href="{{ route('produk.fungsional') }}" class="{{ Request::is('produk/fungsional*') ? 'active' : '' }}">
                             <i class="bi bi-circle"></i><span>Fungsional</span>
                         </a>
                     </li>
                     <li>
-                        <a href="components-alerts.html">
-                            <i class="bi bi-circle"></i><span>Nama Produk</span>
+                        <a href="{{ route('produk') }}" class="{{ Request::is('produk/data*') ? 'active' : '' }}">
+                            <i class="bi bi-circle"></i><span>Data Produk</span>
                         </a>
                     </li>
                 </ul>
@@ -40,12 +40,12 @@
                 </a>
                 <ul id="blog-nav" class="nav-content {{ Request::is('blog*') ? 'show' : 'collapse' }}" data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="{{ route('blog.kategori') }}" class="{{ Request::is('blog/kategori') ? 'active' : '' }}">
+                        <a href="{{ route('blog.kategori') }}" class="{{ Request::is('blog/kategori*') ? 'active' : '' }}">
                             <i class="bi bi-circle"></i><span>Kategori</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('blog.postingan') }}" class="{{ Request::is('blog/postingan') ? 'active' : '' }}">
+                        <a href="{{ route('blog.postingan') }}" class="{{ Request::is('blog/postingan*') ? 'active' : '' }}">
                             <i class="bi bi-circle"></i><span>Postingan</span>
                         </a>
                     </li>

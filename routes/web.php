@@ -55,6 +55,15 @@ Route::group(['middleware' => ['auth']], function () {
     });
 
     Route::prefix('produk')->group(function () {
+        Route::prefix('data')->group(function () {
+            Route::get('/', [ProdukController::class, 'produk'])->name('produk');
+            Route::get('create', [ProdukController::class, 'produkCreate'])->name('produk.create');
+            Route::post('store', [ProdukController::class, 'produkStore'])->name('produk.store');
+            Route::get('edit/{id}', [ProdukController::class, 'produkEdit'])->name('produk.edit');
+            Route::post('update', [ProdukController::class, 'produkUpdate'])->name('produk.update');
+            Route::post('delete', [ProdukController::class, 'produkDelete'])->name('produk.delete');
+        });
+
         Route::prefix('kategori')->group(function () {
             Route::get('/', [ProdukController::class, 'kategori'])->name('produk.kategori');
             Route::get('create', [ProdukController::class, 'kategoriCreate'])->name('produk.kategori.create');
@@ -62,6 +71,15 @@ Route::group(['middleware' => ['auth']], function () {
             Route::get('edit/{id}', [ProdukController::class, 'kategoriEdit'])->name('produk.kategori.edit');
             Route::post('update', [ProdukController::class, 'kategoriUpdate'])->name('produk.kategori.update');
             Route::post('delete', [ProdukController::class, 'kategoriDelete'])->name('produk.kategori.delete');
+        });
+
+        Route::prefix('fungsional')->group(function () {
+            Route::get('/', [ProdukController::class, 'fungsional'])->name('produk.fungsional');
+            Route::get('create', [ProdukController::class, 'fungsionalCreate'])->name('produk.fungsional.create');
+            Route::post('store', [ProdukController::class, 'fungsionalStore'])->name('produk.fungsional.store');
+            Route::get('edit/{id}', [ProdukController::class, 'fungsionalEdit'])->name('produk.fungsional.edit');
+            Route::post('update', [ProdukController::class, 'fungsionalUpdate'])->name('produk.fungsional.update');
+            Route::post('delete', [ProdukController::class, 'fungsionalDelete'])->name('produk.fungsional.delete');
         });
     });
 

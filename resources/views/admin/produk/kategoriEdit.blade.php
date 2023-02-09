@@ -26,6 +26,22 @@
                         <label for="" class="form-label">Nama Kategori</label>
                         <input type="text" class="form-control" name="nama" value="{{ $kategori->nama }}">
                     </div>
+                    <div class="col-12">
+                        <label for="" class="form-label">Apakah Kategori ini memiliki Fungsional ?</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="status" id="gridRadios1" value="1" @if ($kategori->status === 1 ) checked @endif>
+                            <label class="form-check-label" for="gridRadios1">
+                                Ya
+                            </label>
+                            
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="status" id="gridRadios2" value="0" @if ($kategori->status === 0 ) checked @endif>
+                            <label class="form-check-label" for="gridRadios2">
+                                Tidak
+                            </label>
+                        </div>
+                    </div>
                     
                     <div class="text-center">
                         <button type="submit" class="btn btn-primary">Submit</button>

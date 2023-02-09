@@ -27,7 +27,8 @@
                     </div>
                     <div class="col-12">
                         <label for="" class="form-label">Kategori</label>
-                        <select name="kategori_id" class="form-control select2">
+                        <select name="kategori_id" class="form-control select2" data-placeholder="--- Pilih Kategori Postingan ---">
+                            <option></option>
                             @foreach ($kategori as $k)
                                 <option value="{{ $k->id }}">{{ $k->nama }}</option>
                             @endforeach
