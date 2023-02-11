@@ -55,6 +55,7 @@ Route::group(['middleware' => ['auth']], function () {
     });
 
     Route::prefix('produk')->group(function () {
+
         Route::prefix('data')->group(function () {
             Route::get('/', [ProdukController::class, 'produk'])->name('produk');
             Route::get('create', [ProdukController::class, 'produkCreate'])->name('produk.create');
@@ -62,6 +63,7 @@ Route::group(['middleware' => ['auth']], function () {
             Route::get('edit/{id}', [ProdukController::class, 'produkEdit'])->name('produk.edit');
             Route::post('update', [ProdukController::class, 'produkUpdate'])->name('produk.update');
             Route::post('delete', [ProdukController::class, 'produkDelete'])->name('produk.delete');
+            Route::post('card', [ProdukController::class, 'produkCard'])->name('produk.card');
         });
 
         Route::prefix('kategori')->group(function () {

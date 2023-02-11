@@ -174,9 +174,53 @@ class ProdukController extends Controller
 
     public function produkCreate()
     {
-        $kategori = ProdukKategori::where('status', 1)->get();
+        $kategori = ProdukKategori::get();
         return view('admin.produk.produkCreate', [
             'kategori' => $kategori
         ]);
+    }
+
+    public function produkStore(Request $request)
+    {
+        $validate = Validator::make($request->all(), [
+            'kategori_id' => 'required',
+            'nama' => 'required',
+            'gambar' => 'required',
+        ]);
+
+        if ($validate->fails()) {
+            return back()->with('failed', $validate->errors()->first());
+        }
+
+        $ext_doc = $request->gambar->extension();
+        if ($ext_doc == 'jpeg' || $ext_doc == 'png' || $ext_doc == 'jpg') {
+            $docName = rand() . '.' . $ext_doc;
+            $request->gambar->move(public_path('web/assets/produk/'), $docName);
+        } else {
+            return back()->with('failed', 'Wrong image format');
+        }
+
+        $data                           = new Produk();
+        $data->produk_kategori_id       = $request['kategori_id'];
+        $data->produk_fungsional_id     = $request['fungsional_id'];
+        $data->nama                     = $request['nama'];
+        $data->gambar                   = $docName;
+
+        if ($data->save()) {
+            return redirect()->route('produk')->with('success', 'Data Berhasil Di Input');
+        } else {
+            return back()->with('failed', 'Data Gagal Di Input');
+        }
+    }
+
+    public function produkCard(Request $request)
+    {
+        $kategori = ProdukKategori::where('id', $request['kategori_id'])->first();
+        if ($kategori->status !== 0) {
+            $fungsional = ProdukFungsional::where('produk_kategori_id', $request['kategori_id'])->get();
+            return view('admin.produk.card', [
+                'fungsional' => $fungsional,
+            ]);
+        }
     }
 }

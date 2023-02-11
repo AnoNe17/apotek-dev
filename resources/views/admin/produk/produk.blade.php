@@ -34,21 +34,23 @@
                     <th scope="col">Aksi</th>
                   </tr>
                 </thead>
-                  @foreach ($produk as $x => $value)
+                  
+                <tbody>
+                    @foreach ($produk as $x => $value)
                       <tr>
                         <td>{{ $x+1 }}</td>
-                        <td>#</td>
-                        <td>#</td>
-                        <td></td>
-                        <td></td>
                         <td>
-                          <a href="{{ route('produk.fungsional.edit', $value->id) }}" class='btn btn-warning d-inline rounded-pill'><i class="bi bi-pencil-square"></i></a>
-                          <a href="{{ route('produk.fungsional.delete') }}" class='btn btn-danger d-inline rounded-pill' data-name ="{{ $value->nama }}" data-id="{{ $value->id }}" onclick="hapus(event)"><i class="bi bi-trash3-fill"></i></a>
+                          <img src="{{ asset('web/assets/produk/'. $value->gambar) }}" class="" alt="" srcset="" style="width: 100px; height: 100px;"> 
+                        </td>
+                        <td>{{ $value->nama }}</td>
+                        <td>{{ $value->Kategori->nama }}</td>
+                        <td>{{ $value->Fungsional->nama }}</td>
+                        <td>
+                          <a href="{{ route('produk.edit', $value->id) }}" class='btn btn-warning d-inline rounded-pill'><i class="bi bi-pencil-square"></i></a>
+                          <a href="{{ route('produk.delete') }}" class='btn btn-danger d-inline rounded-pill' data-name ="{{ $value->nama }}" data-id="{{ $value->id }}" onclick="hapus(event)"><i class="bi bi-trash3-fill"></i></a>
                         </td>
                       </tr>
                   @endforeach
-                <tbody>
-                    
                 </tbody>
               </table>
               <!-- End Table with stripped rows -->
