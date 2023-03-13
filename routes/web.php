@@ -25,7 +25,6 @@ use App\Http\Controllers\WebController;
 //     return "asd";
 // });
 
-// Route::get('/', [DashboardController::class, 'index'])->name('admin.index');
 Route::get('/', [PageController::class, 'index'])->name('home');
 Route::post('store', [SaranController::class, 'store'])->name('saran.store');
 
