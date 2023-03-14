@@ -409,33 +409,19 @@
         </header>
 
         <div class="row">
-
-          <div class="col-lg-4">
-            <div class="post-box">
-              <div class="post-img"><img src="{{ asset('page/assets/img/blog/blog-1.jpg') }}" class="img-fluid" alt=""></div>
-              <span class="post-date">Tue, September 15</span>
-              <h3 class="post-title">Eum ad dolor et. Autem aut fugiat debitis voluptatem consequuntur sit</h3>
-              <a href="blog-single.html" class="readmore stretched-link mt-auto"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4">
-            <div class="post-box">
-              <div class="post-img"><img src="{{ asset('page/assets/img/blog/blog-2.jpg') }}" class="img-fluid" alt=""></div>
-              <span class="post-date">Fri, August 28</span>
-              <h3 class="post-title">Et repellendus molestiae qui est sed omnis voluptates magnam</h3>
-              <a href="blog-single.html" class="readmore stretched-link mt-auto"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4">
-            <div class="post-box">
-              <div class="post-img"><img src="{{ asset('page/assets/img/blog/blog-3.jpg') }}" class="img-fluid" alt=""></div>
-              <span class="post-date">Mon, July 11</span>
-              <h3 class="post-title">Quia assumenda est et veritatis aut quae</h3>
-              <a href="blog-single.html" class="readmore stretched-link mt-auto"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div>
+          @foreach ($blog as $index => $b)
+          @if ($index < 3)
+              <div class="col-lg-4">
+                <div class="post-box">
+                  <div class="post-img"><img src="{{ asset('web/assets/blog/'. $b->gambar) }}" class="img-fluid" alt="" style="width: 100%"></div>
+                  <span class="post-date">{{ $b->created_at }}</span>
+                  <h3 class="post-title">{{ $b->judul }}</h3>
+                  <a href="blog-single.html" class="readmore stretched-link mt-auto"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                </div>
+              </div>
+          @endif
+              
+          @endforeach
 
         </div>
 
@@ -493,7 +479,7 @@
           </div>
 
           <div class="col-lg-6 ">
-            <h3 class="text-center" style="color: #4154f1; font-weight: 650">Kritik & Saran</h3>
+            <h3 class="text-center" style="color: #012970; font-weight: 650">Kritik & Saran</h3>
             <form action="{{ route("saran.store") }}" method="post" class="p-3" >
               @csrf
               <div class="row gy-4">
@@ -595,7 +581,7 @@
         <!-- You can delete the links only if you purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/flexstart-bootstrap-startup-template/ -->
-        Created by <a href="https://www.instagram.com/_17maulana/">LaNa_Dev</a>
+        Created by 
       </div>
     </div>
   </footer><!-- End Footer -->

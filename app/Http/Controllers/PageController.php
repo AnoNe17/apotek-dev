@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use App\Models\Client;
 use App\Models\Content;
 use App\Models\Layanan;
@@ -18,6 +19,8 @@ class PageController extends Controller
         $content = Content::first();
         $layanan = Layanan::get();
         $misi = Misi::get();
+        $blog = Blog::get();
+
 
         // return $content;
 
@@ -26,6 +29,7 @@ class PageController extends Controller
             'content' => $content,
             'layanan' => $layanan,
             'misi' => $misi,
+            'blog' => $blog,
         ]);
     }
 }

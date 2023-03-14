@@ -40,7 +40,7 @@
                     </div>
                     <div class="col-12">
                         <label for="" class="form-label">Gambar</label>
-                        <input type="text" class="form-control" name="gambar" value="">
+                        <input type="file" class="form-control" name="gambar" value="">
                     </div>
                     
                     <div class="text-center">

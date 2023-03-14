@@ -42,11 +42,19 @@ class BlogController extends Controller
             return back()->with('failed', $validate->errors()->first());
         }
 
+        $ext_doc = $request->gambar->extension();
+        if ($ext_doc == 'jpeg' || $ext_doc == 'png' || $ext_doc == 'jpg') {
+            $docName = rand() . '.' . $ext_doc;
+            $request->gambar->move(public_path('web/assets/blog/'), $docName);
+        } else {
+            return back()->with('failed', 'Wrong image format');
+        }
+
         $data                       = new Blog();
         $data->judul                = $request['judul'];
         $data->blog_kategori_id     = $request['kategori_id'];
         $data->isi                  = $request['isi'];
-        $data->gambar               = $request['gambar'];
+        $data->gambar               = $docName;
         $data->save();
 
         if ($data->save()) {
